@@ -1,11 +1,10 @@
 import React, { useState, useEffect, memo } from 'react';
 import PageLayout from 'components/PageLayout';
+import { Link } from 'react-router-dom';
 import { fetchHeroes } from './control';
 import './Heroes.css';
-import { Link } from 'react-router-dom';
 
 function Heroes() {
-  // eslint-disable-next-line no-unused-vars
   const [heroes, setHeroes] = useState([]);
 
   useEffect(() => {

@@ -1,0 +1,94 @@
+.hero_detail {
+  padding: 40px;
+  text-align: center;
+  background-color: rgb(235, 235, 234);
+}
+
+.header {
+  background-position: center;
+  background-size: cover;
+  border-radius: 10%;
+}
+
+.header__float {
+  backdrop-filter: blur(20px);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.header__avatar {
+  padding: 40px;
+}
+.header__avatar img {
+  border-radius: 5%;
+  min-width: 300px;
+  height: auto;
+}
+
+.hero__name {
+  margin-bottom: 3px;
+}
+.attack__type {
+  text-transform: uppercase;
+  font-size: 16px;
+  opacity: 0.8;
+}
+.str__agi__int {
+  width: 70%;
+  min-width: 330px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(20, 20, 20);
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+.red::before {
+  content: ' ';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 7.5px;
+  background-color: red;
+  margin-right: 5px;
+}
+.green::before {
+  content: ' ';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 7.5px;
+  background-color: green;
+  margin-right: 5px;
+}
+.red,
+.green,
+.blue {
+  margin: 20px auto;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2px;
+}
+.blue::before {
+  content: ' ';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 7.5px;
+  background-color: blue;
+  margin-right: 5px;
+}
+.green {
+  color: green;
+}
+
+.detail p {
+  border: 1px solid rgba(192, 192, 192, 0.3);
+  background: rgba(192, 192, 192, 0.3);
+  opacity: 0.8;
+  padding: 20px;
+}
