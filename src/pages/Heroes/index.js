@@ -1,6 +1,8 @@
 import React, { useState, useEffect, memo } from 'react';
 import PageLayout from 'components/PageLayout';
 import { fetchHeroes } from './control';
+import './Heroes.css';
+import { Link } from 'react-router-dom';
 
 function Heroes() {
   // eslint-disable-next-line no-unused-vars
@@ -15,6 +17,36 @@ function Heroes() {
     <PageLayout>
       <div />
       <span>HEROES</span>
+      <table className="heroes-table">
+        <thead>
+          <tr>
+            <th>Heros</th>
+            <th>Pro Pick/Bans</th>
+            <th>Pro Wins</th>
+          </tr>
+        </thead>
+        <tbody>
+          {heroes.map((hero) => (
+            <tr key={hero.id}>
+              <td>
+                <Link
+                  to={{
+                    pathname: `/heroes/${hero.localized_name}`,
+                    state: { hero },
+                  }}
+                >
+                  <div className="heroes_name_img">
+                    <img src={`https://api.opendota.com${hero.icon}`} alt="" />
+                    <div className="heroes__name">{hero.localized_name}</div>
+                  </div>
+                </Link>
+              </td>
+              <td>{`${hero.pro_pick} / ${hero.pro_ban}`}</td>
+              <td>{hero.pro_win}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </PageLayout>
   );
 }

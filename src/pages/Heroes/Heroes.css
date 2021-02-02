@@ -1,0 +1,26 @@
+.heroes-table {
+  margin: 30px auto;
+  text-align: left;
+}
+
+.heroes_name_img {
+  display: flex;
+  align-items: center;
+}
+
+.heroes_name_img .heroes__name {
+  color: red;
+  margin-left: 10px;
+}
+.heroes-table th {
+  background-color: #ddd;
+  font-size: 18px;
+}
+
+.heroes-table td,
+th {
+  padding: 11px;
+}
+.heroes-table tr:nth-child(even) {
+  background-color: #ddd;
+}

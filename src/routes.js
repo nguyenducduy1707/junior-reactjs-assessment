@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Switch, Route,
-  BrowserRouter as Router,
-} from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { ROUTES } from 'constants/routes-constants';
 
 /**
@@ -15,6 +12,7 @@ import Heroes from 'pages/Heroes';
  * components
  */
 import Header from 'components/layout/Header';
+import HeroDetail from 'pages/HeroesDetail/HeroDetail';
 
 function Routes() {
   return (
@@ -24,7 +22,7 @@ function Routes() {
         <Switch>
           <Route key="a" exact path={ROUTES.HOME} component={Home} />
           <Route key="b" exact path={ROUTES.HEROES} component={Heroes} />
-          <Route component={() => <div>Not Found</div>} />
+          <Route path="/heroes/:localized_name" component={HeroDetail} />
         </Switch>
       </Router>
     </>
