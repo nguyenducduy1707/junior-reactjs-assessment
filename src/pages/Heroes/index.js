@@ -1,17 +1,22 @@
 import React, { useState, useEffect, memo } from 'react';
 import PageLayout from 'components/PageLayout';
 import { Link } from 'react-router-dom';
-import { fetchHeroes } from './control';
 import './Heroes.css';
+import { useDispatch } from 'react-redux';
+import { displayAction } from 'actions';
+import { fetchHeroes } from './control';
 
 function Heroes() {
   const [heroes, setHeroes] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchHeroes().then((result) => {
       setHeroes(result);
+      dispatch(displayAction(result));
     });
-  }, []);
+  }, [dispatch]);
+
   return (
     <PageLayout>
       <div />
@@ -31,7 +36,7 @@ function Heroes() {
                 <Link
                   to={{
                     pathname: `/heroes/${hero.localized_name}`,
-                    state: { hero },
+                    // state: { hero },
                   }}
                 >
                   <div className="heroes_name_img">
