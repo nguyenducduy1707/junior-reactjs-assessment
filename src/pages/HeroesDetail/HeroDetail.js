@@ -35,7 +35,7 @@ function HeroDetail({ match }) {
         <div
           className="header"
           style={{
-            backgroundImage: `url(${`https://api.opendota.com${matchedHero?.img}`})`,
+            backgroundImage: `url(${`https://api.opendota.com${matchedHero.img}`})`,
           }}
         >
           <div className="header__float">

@@ -1,7 +1,15 @@
-const displayHeroReducer = (state = [], action) => {
+const initialState = {
+  list: [],
+};
+const displayHeroReducer = (state = initialState, action) => {
+  const newList = [...state.list];
   switch (action.type) {
     case 'DISPLAY':
-      return [...state, action.payload];
+      newList.push(action.payload);
+      return {
+        ...state,
+        list: newList,
+      };
     default:
       return state;
   }
