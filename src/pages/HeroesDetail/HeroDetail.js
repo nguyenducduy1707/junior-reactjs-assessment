@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './HeroDetail.css';
 import { useSelector } from 'react-redux';
-import { fetchHeroes } from 'pages/Heroes/control';
 
 // Loader image
 const Loader = () => (
@@ -10,25 +9,11 @@ const Loader = () => (
     <i className="fa fa-sync fa-spin fa-10x" />
   </div>
 );
-function HeroDetail({ match }) {
-  const [hero, setHero] = useState([]);
-  const heroDetail = useSelector((state) => state.display);
-  useEffect(() => {
-    if (heroDetail !== []) {
-      fetchHeroes().then((result) => {
-        setHero(result);
-      });
-    } else {
-      setHero(heroDetail);
-    }
-  }, []);
-  // Check if params is matched in array of object
-  let matchedHero = {};
-  if (hero) {
-    matchedHero = hero.find(
-      (heroFound) => heroFound.localized_name === match.params.localized_name
-    );
+function HeroDetail() {
+  const matchedHero = useSelector((state) => {
+    return state.displayHeroDetail.selectedHeroesId;
   }
+  );
   return (
     <div className="hero_detail">
       {matchedHero && matchedHero.img ? (
@@ -114,39 +99,5 @@ function HeroDetail({ match }) {
     </div>
   );
 }
-
-HeroDetail.propTypes = {
-  hero: PropTypes.shape({
-    localized_name: PropTypes.string,
-    img: PropTypes.string,
-    attack_type: PropTypes.string,
-    roles: PropTypes.array,
-    base_str: PropTypes.number,
-    base_agi: PropTypes.number,
-    base_int: PropTypes.number,
-    str_gain: PropTypes.number,
-    agi_gain: PropTypes.number,
-    int_gain: PropTypes.number,
-    base_attack_min: PropTypes.number,
-    base_attack_max: PropTypes.number,
-    attack_range: PropTypes.number,
-    attack_speed: PropTypes.number,
-    base_health: PropTypes.number,
-    projectile_speed: PropTypes.number,
-    base_health_regen: PropTypes.number,
-    base_mana: PropTypes.number,
-    base_mana_regen: PropTypes.number,
-    base_armor: PropTypes.number,
-    base_mr: PropTypes.number,
-    move_speed: PropTypes.number,
-    turn_rate: PropTypes.number,
-    legs: PropTypes.number,
-    cm_enabled: PropTypes.bool,
-  }),
-};
-
-HeroDetail.defaultProps = {
-  location: {},
-};
 
 export default HeroDetail;

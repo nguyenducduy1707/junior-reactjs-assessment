@@ -22,7 +22,7 @@ function Routes() {
         <Switch>
           <Route key="a" exact path={ROUTES.HOME} component={Home} />
           <Route key="b" exact path={ROUTES.HEROES} component={Heroes} />
-          <Route path="/heroes/:localized_name" component={HeroDetail} />
+          <Route path="/heroes/:localized_name/:id" component={HeroDetail} />
         </Switch>
       </Router>
     </>

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import displayHeroReducer from './displayHero';
+import displayAllHeros from './displayHero';
+import displayHeroDetail from './heroDetail';
 
 const rootReducers = combineReducers({
-  display: displayHeroReducer,
+  displayAllHeros,
+  displayHeroDetail,
 });
 
 export default rootReducers;
